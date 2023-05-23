@@ -1,0 +1,116 @@
+/* General rules */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 120px;
+    background-color: #08918a;
+}
+
+main {
+    height: calc(100vh - 120px);
+    width: 100vw;
+    background-color: #d8dbd5;
+}
+/************ Text rules ******************/
+
+/* Font sizes */
+.font-size-20 {
+    font-size: 20px;
+}
+.font-size-12 {
+    font-size: 12px;
+}
+
+/* Text colors */
+.txt-color-gray {
+    
+    color: #c7cdd9;
+}
+/* App/Container */
+.container {
+    height: 90%;
+    width: 80%;
+    background-color: white;
+    box-shadow: 5px 5px rgb(128, 128, 209);
+    border-radius: 10px 10px;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    display: flex;
+}
+
+#container-left {
+    height: 100%;
+    width: 33%;
+}
+
+#container-right {
+    height: 100%;
+    width: 67%;
+    background-color: rgb(158, 252, 244);
+}
+
+/* User-bar */
+#user-bar-section {
+    height: 50px;
+    background-color: lightslategray;
+}
+
+/* Left */
+#user-bar-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.profile-pic-40 {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: blanchedalmond;
+}
+.profile-pic-50 {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+/* Right */
+
+/* Notification section */
+#notification-section {
+    background-color: #8edafc;
+    height: 60px;
+}
+/* Searchbar section */
+#search-bar-section {
+    height: 40px;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Open-chats */
+#open-chats {
+    height: calc(100% - 150px);
+    background-color: #ffffff;
+    overflow: scroll;
+    width: 98%;
+    margin-left: 2%;
+}
+.chat {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgb(223, 222, 222);
+}
+.chat-info {
+    width: 75%;
+    margin-left: 10px;
+    padding-top: 10px;
+}
