@@ -5,8 +5,8 @@ createApp ({
     data() {
         return {
             user: {
-                name: 'Michele',
-                avatar: './img/avatar_1.png'
+                name: 'Giacomo',
+                avatar: './img/user_avatar.png'
             },
             contacts: [
                 {
@@ -170,9 +170,31 @@ createApp ({
                         }
                     ],
                 }
-            ]
+            ],
+            selectedContact: null,
             
         }
+    },
+    methods: {
+        selectContact(contact) {
+          this.selectedContact = contact;
+        },
+        addMessage() {
+            if (this.newMessage.trim() !== '') {
+              this.selectedContact.messages.push({
+                message: this.newMessage,
+                status:'sent'
+              });
+              this.newMessage = '';
+              setTimeout(() => {
+                this.selectedContact.messages.push({
+                  message:'ok',
+                  status:'received'
+                });
+              },200);
+            }
+          }
     }
-    
+
+
 }).mount('#app');

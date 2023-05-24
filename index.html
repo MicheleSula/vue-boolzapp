@@ -13,8 +13,9 @@
 
     </header>
     <main>
+        <!-- App container -->
         <div id="app" class="container">
-            <!-- Left part -->
+            <!-- Left section-->
             <section id="container-left">
                 <!-- User bar -->
                 <div id="user-bar-section">
@@ -41,7 +42,7 @@
                 <!-- Open chats -->
                 <div id="open-chats">
                     <!-- Chat element -->
-                    <div v-for="(chat, index) in  contacts" class="chat">
+                    <div v-for="(chat, index) in  contacts" class="chat" @click="selectContact(chat)">
                         <!-- Profile-picture -->
                         <div class="profile-picture-container">
                             <img class="profile-pic-50" :src="contacts[index].avatar" alt="">  
@@ -58,13 +59,34 @@
 
                     </div>
                 </div>
-
             </section>
 
-            <section id="container-right">
-
+            <!-- Right section -->
+            <section id="container-right" v-if="selectedContact">
+                    <!-- User bar -->
+                    <div id="selected-contact-bar">
+                        <div>
+                            <img class="profile-pic-50" :src="selectedContact.avatar" alt="">
+                        </div>
+                        <h2>{{selectedContact.name}}</h2>
+                    </div>
+                    <!-- Messages box -->    
+                    <div id="message-card-wrapper">
+                        <ul>
+                            <li v-for="message in selectedContact.messages" :key="message.date" class="clearfix">
+                                <div :class="message.status" class="message-card">
+                                {{ message.message }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Write-in box -->  
+                    <div>
+                        <input type="text" v-model="newMessage" @keyup.enter="addMessage">
+                    </div>
             </section>
-        </div>
+        
 
         
     </main>

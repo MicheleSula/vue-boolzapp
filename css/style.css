@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 header {
     height: 120px;
     background-color: #08918a;
@@ -15,6 +16,16 @@ main {
     width: 100vw;
     background-color: #d8dbd5;
 }
+
+li {
+    list-style-type: none;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 /************ Text rules ******************/
 
 /* Font sizes */
@@ -30,6 +41,25 @@ main {
     
     color: #c7cdd9;
 }
+/* Sent/received */
+.received {
+    background-color: white;
+    float: left;
+}
+
+.sent {
+    background-color: #d5f9ba;
+    float: right;
+}
+
+.message-card {
+    padding: 10px 30px;
+    text-align: right;
+    width: max-content;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
 /* App/Container */
 .container {
     height: 90%;
@@ -51,13 +81,15 @@ main {
 #container-right {
     height: 100%;
     width: 67%;
-    background-color: rgb(158, 252, 244);
+    border-radius: 0 10px 0 0;
+    background-image: url('../img/whatsapp_background.png');
 }
-
 /* User-bar */
 #user-bar-section {
     height: 50px;
-    background-color: lightslategray;
+    background-color: #eaeaea;
+    border-right: 1px solid #f5f3f3;
+    border-radius: 10px 0 0 0;
 }
 
 /* Left */
@@ -107,10 +139,27 @@ main {
     height: 80px;
     margin-bottom: 20px;
     margin-top: 10px;
-    border-bottom: 1px solid rgb(223, 222, 222);
+    border-bottom: 1px solid #f5f3f3;
 }
 .chat-info {
     width: 75%;
     margin-left: 10px;
     padding-top: 10px;
+}
+
+
+/* Right part of container */
+#selected-contact-bar {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #eaeaea;
+}
+
+#message-card-wrapper {
+    width: 85%;
+    margin: auto;
+    padding-top: 100px;
+    height: calc(100% - 100px);
+    overflow: auto;
 }
