@@ -15,6 +15,13 @@
     <main>
         <!-- App container -->
         <div id="app" class="container">
+            <!-- Loading screen -->
+        <div v-if="isLoading" id="loading-page">
+            <div class="ring">
+            Loading
+            <span></span>
+            </div>
+        </div>
             <!-- Left section-->
             <section id="container-left">
                 <!-- User bar -->

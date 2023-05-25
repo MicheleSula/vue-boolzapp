@@ -182,7 +182,8 @@ createApp ({
                 }
             ],
             selectedContact: null,
-            searchQuery: ''
+            searchQuery: '',
+            isLoading: true
             
         }
     },
@@ -219,6 +220,11 @@ createApp ({
         filterContacts(searchQuery) {
           return this.contacts.filter(contact => contact.name.toLowerCase().includes(searchQuery.toLowerCase()));
         }
+    },
+    mounted() {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 1500);
     }
 
 
