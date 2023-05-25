@@ -8,6 +8,16 @@ createApp ({
                 name: 'Giacomo',
                 avatar: './img/user_avatar.png'
             },
+            randomAnswers: [
+                'Va bene!',
+                'Capito!',
+                'Perfetto!',
+                'D’accordo!',
+                'Ottimo!',
+                'Certo!',
+                'So di non sapere',
+                'L’uomo è la misura di tutte le cose',
+            ],
             contacts: [
                 {
                     name: 'Michele',
@@ -187,18 +197,23 @@ createApp ({
           this.searchQuery = '';
         },
         addMessage() {
-          if (this.newMessage.trim() !== '') {
-            this.selectedContact.messages.push({
-              message: this.newMessage,
-              status:'sent'
-            });
+            if (this.newMessage.trim() !== '') {
+                const currentDate = new Date();
+                this.selectedContact.messages.push({
+                    date: currentDate.toLocaleString(),
+                    message: this.newMessage,
+                    status:'sent'
+                });
             this.newMessage = '';
             setTimeout(() => {
-              this.selectedContact.messages.push({
-                message:'ok',
-                status:'received'
-              });
-            },200);
+                const randomIndex = Math.floor(Math.random() * this.randomAnswers.length);
+                const randomAnswers = this.randomAnswers[randomIndex];
+                this.selectedContact.messages.push({
+                    date: currentDate.toLocaleString(),
+                    message:randomAnswers,
+                    status:'received'
+                });
+            },800);
           }
         },
         filterContacts(searchQuery) {
