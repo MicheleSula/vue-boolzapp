@@ -37,27 +37,26 @@
                 </div>
                 <!-- Searchbar section -->
                 <div id="search-bar-section">
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input id="search-bar-input" type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchQuery">
                 </div>
                 <!-- Open chats -->
                 <div id="open-chats">
-                    <!-- Chat element -->
-                    <div v-for="(chat, index) in  contacts" class="chat" @click="selectContact(chat)">
-                        <!-- Profile-picture -->
-                        <div class="profile-picture-container">
-                            <img class="profile-pic-50" :src="contacts[index].avatar" alt="">  
-                        </div>
-                        <!-- Chatter name and infos -->
-                        <div class="chat-info">
-                            <h2 class="font-size-20">{{contacts[index].name}}</h2>
-                            <h3 class="txt-color-gray font-size-12">Ultimo messaggio inviato</h3>
-                        </div>
-
-                        <div class="message-time">
-                            <h4 class="txt-color-gray font-size-12">12:00</h4>
-                        </div>
-
+                    <!-- Filtered contacts -->
+                    <div v-for="contact in filteredContacts" class="chat" @click="selectContact(contact)">
+                    <!-- Profile-picture -->
+                    <div class="profile-picture-container">
+                      <img class="profile-pic-50" :src="contact.avatar" alt="">  
                     </div>
+                    <!-- Chatter name and infos -->
+                    <div class="chat-info">
+                      <h2 class="font-size-20">{{ contact.name }}</h2>
+                      <h3 class="txt-color-gray font-size-12">{{ contact.messages[contact.messages.length - 1].message }}</h3>
+                    </div>
+                  
+                    <div class="message-time">
+                      <h4 class="txt-color-gray font-size-12">{{ contact.messages[contact.messages.length - 1].date }}</h4>
+                    </div>
+                  </div>
                 </div>
             </section>
 
@@ -82,8 +81,8 @@
                     </div>
                     
                     <!-- Write-in box -->  
-                    <div>
-                        <input type="text" v-model="newMessage" @keyup.enter="addMessage">
+                    <div id="write-in-box">
+                        <input id="write-in-input" type="text" v-model="newMessage" @keyup.enter="addMessage" placeholder="Scrivi un messaggio">
                     </div>
             </section>
         

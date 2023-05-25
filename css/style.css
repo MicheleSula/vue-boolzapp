@@ -125,6 +125,11 @@ li {
     align-items: center;
     justify-content: center;
 }
+#search-bar-input {
+    width: 90%;
+    margin: auto;
+    height: 80%;
+}
 /* Open-chats */
 #open-chats {
     height: calc(100% - 150px);
@@ -162,4 +167,20 @@ li {
     padding-top: 100px;
     height: calc(100% - 100px);
     overflow: auto;
+}
+
+/* Message box */
+#write-in-box {
+    height: 50px;
+    background-color: #08918a;
+    width: 100%;
+    position: relative;
+}
+
+#write-in-input {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
 }

@@ -172,28 +172,38 @@ createApp ({
                 }
             ],
             selectedContact: null,
+            searchQuery: ''
             
+        }
+    },
+    computed: {
+        filteredContacts() {
+          return this.filterContacts(this.searchQuery);
         }
     },
     methods: {
         selectContact(contact) {
           this.selectedContact = contact;
+          this.searchQuery = '';
         },
         addMessage() {
-            if (this.newMessage.trim() !== '') {
+          if (this.newMessage.trim() !== '') {
+            this.selectedContact.messages.push({
+              message: this.newMessage,
+              status:'sent'
+            });
+            this.newMessage = '';
+            setTimeout(() => {
               this.selectedContact.messages.push({
-                message: this.newMessage,
-                status:'sent'
+                message:'ok',
+                status:'received'
               });
-              this.newMessage = '';
-              setTimeout(() => {
-                this.selectedContact.messages.push({
-                  message:'ok',
-                  status:'received'
-                });
-              },200);
-            }
+            },200);
           }
+        },
+        filterContacts(searchQuery) {
+          return this.contacts.filter(contact => contact.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
     }
 
 
