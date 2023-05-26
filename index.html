@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font-awesome -->
+    <script src="https://kit.fontawesome.com/07a34989cf.js" crossorigin="anonymous"></script>
     <title>Wassapp
     </title>
 </head>
@@ -27,14 +30,16 @@
                 <!-- User bar -->
                 <div id="user-bar-section">
                     <div id="user-bar-left">
-                        <div>
+                        <div id="profile-info" class="display-flex align-center">
                             <img class="profile-pic-40" :src="user.avatar" alt="">
+                            <h2>{{user.name}}</h2>
                         </div>
-                        <h2>{{user.name}}</h2>
-                    </div>
-
-                    <div id="user-bar-right">
-
+                        
+                        <div id="icons-bar-left">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
                     </div>
                     
                 </div>
@@ -66,7 +71,7 @@
                   </div>
                 </div>
             </section>
-
+            
             <!-- Right section -->
             <section id="container-right" v-if="selectedContact">
                     <!-- User bar -->
